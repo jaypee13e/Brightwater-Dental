@@ -1,0 +1,547 @@
+:root {
+  --bg: #f5faf9;
+  --card: #ffffff;
+  --tx: #14282b;
+  --mut: #53696c;
+  --bd: #d5e4e2;
+  --ac: #0f6b6b;
+  --acx: #ffffff;
+  --soft: #e2f2f0;
+  --gold: #e0a43a;
+  --ok: #1e6b45;
+  --bad: #b4372b;
+  color-scheme: light;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f1b1c;
+    --card: #162526;
+    --tx: #eaf4f3;
+    --mut: #a3bab8;
+    --bd: #2b4244;
+    --ac: #5cc9c4;
+    --acx: #08201f;
+    --soft: #1d3638;
+    --ok: #6fd1a0;
+    --bad: #ff8f80;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #0f1b1c;
+  --card: #162526;
+  --tx: #eaf4f3;
+  --mut: #a3bab8;
+  --bd: #2b4244;
+  --ac: #5cc9c4;
+  --acx: #08201f;
+  --soft: #1d3638;
+  --ok: #6fd1a0;
+  --bad: #ff8f80;
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 80px);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--tx);
+  font:
+    18px/1.65 "Nunito Sans",
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    sans-serif;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Lora", Georgia, "Times New Roman", serif;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0;
+}
+
+a {
+  color: var(--ac);
+}
+
+.w {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.skip {
+  position: absolute;
+  left: -999px;
+  top: 8px;
+  background: var(--ac);
+  color: var(--acx);
+  padding: 10px 16px;
+  border-radius: 8px;
+  z-index: 20;
+}
+
+.skip:focus {
+  left: 8px;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0 0 auto;
+  height: env(safe-area-inset-top, 0px);
+  background: var(--bg);
+  z-index: 11;
+}
+
+:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 2px;
+}
+
+/* Header */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--bg);
+  border-bottom: 1px solid var(--bd);
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
+header .w {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 66px;
+  gap: 12px;
+}
+
+.logo {
+  font: 700 22px "Lora", Georgia, serif;
+  text-decoration: none;
+  color: var(--tx);
+}
+
+.logo small {
+  display: block;
+  font: 400 13px "Nunito Sans", sans-serif;
+  color: var(--mut);
+}
+
+nav {
+  display: flex;
+  gap: 22px;
+  align-items: center;
+  font-size: 16px;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--mut);
+  font-weight: 700;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  border: 0;
+  border-radius: 10px;
+  background: var(--ac);
+  color: var(--acx);
+  padding: 14px 28px;
+  font: 800 17px "Nunito Sans", sans-serif;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn.sm {
+  padding: 9px 18px;
+  font-size: 16px;
+  color: var(--acx) !important;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Hero */
+.hero {
+  padding: 72px 0 52px;
+}
+
+.hero h1 {
+  font-size: clamp(38px, 7vw, 66px);
+  letter-spacing: -1px;
+  max-width: 16ch;
+}
+
+.hero p {
+  font-size: 21px;
+  color: var(--mut);
+  max-width: 42ch;
+  margin: 20px 0 28px;
+}
+
+.trust {
+  display: flex;
+  gap: 10px 26px;
+  flex-wrap: wrap;
+  color: var(--mut);
+  font-size: 16px;
+  margin-top: 26px;
+}
+
+.trust span::before {
+  content: "✓ ";
+  color: var(--ok);
+  font-weight: 800;
+}
+
+/* Sections */
+section {
+  padding: 56px 0;
+  border-top: 1px solid var(--bd);
+}
+
+section > .w > h2 {
+  font-size: clamp(28px, 4.5vw, 40px);
+  margin-bottom: 8px;
+}
+
+.lead {
+  color: var(--mut);
+  max-width: 60ch;
+  margin: 0 0 24px;
+}
+
+.note {
+  color: var(--mut);
+  font-size: 15px;
+}
+
+/* Cards */
+.card {
+  background: var(--card);
+  border: 1px solid var(--bd);
+  border-radius: 14px;
+  padding: 22px;
+}
+
+.card h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.price {
+  font: 700 20px "Lora", Georgia, serif;
+  color: var(--ac);
+}
+
+/* Booking layout */
+.book {
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  gap: 22px;
+  align-items: start;
+}
+
+.step {
+  margin-bottom: 26px;
+}
+
+.step h3 {
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+
+.step h3 span {
+  display: inline-grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  margin-right: 8px;
+  border-radius: 50%;
+  background: var(--ac);
+  color: var(--acx);
+  font: 800 16px "Nunito Sans", sans-serif;
+}
+
+/* Service options */
+.opts {
+  display: grid;
+  gap: 10px;
+}
+
+.opt {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0;
+  padding: 12px 14px;
+  border: 1.5px solid var(--bd);
+  border-radius: 10px;
+  background: var(--bg);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.opt:has(input:checked) {
+  border-color: var(--ac);
+  background: var(--soft);
+}
+
+.opt input {
+  width: 20px;
+  height: 20px;
+  flex: none;
+  accent-color: var(--ac);
+}
+
+.opt span {
+  flex: 1;
+}
+
+.opt small {
+  display: block;
+  font-weight: 400;
+  color: var(--mut);
+  font-size: 14px;
+}
+
+.opt b {
+  color: var(--ac);
+  white-space: nowrap;
+}
+
+/* Day tabs and time slots */
+.days,
+.slots {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.days {
+  margin-bottom: 14px;
+}
+
+.chip {
+  border: 1.5px solid var(--bd);
+  border-radius: 10px;
+  background: var(--bg);
+  color: var(--tx);
+  padding: 9px 14px;
+  font: 700 15px "Nunito Sans", sans-serif;
+  cursor: pointer;
+}
+
+.chip[aria-pressed="true"] {
+  background: var(--ac);
+  border-color: var(--ac);
+  color: var(--acx);
+}
+
+.chip:disabled {
+  opacity: 0.4;
+  text-decoration: line-through;
+  cursor: not-allowed;
+}
+
+/* Forms */
+label,
+legend {
+  display: block;
+  font-weight: 700;
+  margin: 14px 0 6px;
+  font-size: 16px;
+  padding: 0;
+}
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+input:not([type="radio"]):not([type="checkbox"]),
+select,
+textarea {
+  width: 100%;
+  background: var(--bg);
+  color: var(--tx);
+  border: 1.5px solid var(--bd);
+  border-radius: 10px;
+  padding: 11px 12px;
+  font: inherit;
+}
+
+.ck {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-weight: 400;
+  margin: 8px 0;
+}
+
+.ck input {
+  width: 22px;
+  height: 22px;
+  flex: none;
+  accent-color: var(--ac);
+}
+
+.checklist {
+  margin: 8px 0 0;
+  padding: 14px 18px 14px 36px;
+  border-radius: 10px;
+  background: var(--soft);
+  font-size: 16px;
+}
+
+/* Summary */
+.sum {
+  position: sticky;
+  top: 90px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--bd);
+  font-size: 16px;
+}
+
+.row span {
+  color: var(--mut);
+}
+
+.row b {
+  text-align: right;
+}
+
+.ok {
+  background: var(--card);
+  border: 2px solid var(--ok);
+  border-radius: 14px;
+  padding: 22px;
+  font-weight: 700;
+}
+
+.err {
+  color: var(--bad);
+  font-weight: 700;
+  margin-top: 8px;
+}
+
+/* Team */
+.av {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--ac);
+  color: var(--acx);
+  display: grid;
+  place-items: center;
+  font: 700 22px "Lora", serif;
+  margin-bottom: 12px;
+}
+
+/* FAQ */
+details {
+  background: var(--card);
+  border: 1px solid var(--bd);
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-bottom: 10px;
+}
+
+summary {
+  cursor: pointer;
+  font: 700 20px "Lora", Georgia, serif;
+}
+
+details p {
+  margin: 10px 0 0;
+  color: var(--mut);
+}
+
+/* Developer pitch banner */
+.pitch {
+  background: var(--ac);
+  color: var(--acx);
+  padding: 34px 0;
+}
+
+.pitch .w {
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.pitch p {
+  margin: 4px 0 0;
+  opacity: 0.88;
+  font-size: 16px;
+}
+
+.pitch .btn {
+  background: var(--gold);
+  color: #14282b;
+}
+
+footer.fo {
+  padding: 26px 0;
+  color: var(--mut);
+  font-size: 15px;
+}
+
+/* Mobile */
+@media (max-width: 800px) {
+  .book {
+    grid-template-columns: 1fr;
+  }
+
+  .sum {
+    position: static;
+  }
+
+  nav a:not(.btn) {
+    display: none;
+  }
+
+  .hero {
+    padding-top: 44px;
+  }
+}

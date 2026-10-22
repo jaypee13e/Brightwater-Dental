@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Brightwater Dental | Gentle family dentistry</title>
+    <meta
+      name="description"
+      content="Check-ups, fillings, whitening and emergency care. Book your appointment online in under a minute."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:wght@600;700&family=Nunito+Sans:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+
+    <header>
+      <div class="w">
+        <a class="logo" href="#top">
+          Brightwater Dental
+          <small>Gentle family dentistry</small>
+        </a>
+        <nav aria-label="Main">
+          <a href="#services">Services</a>
+          <a href="#team">Team</a>
+          <a href="#faq">FAQ</a>
+          <a class="btn sm" href="#booking">Book online</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <div id="top" class="w hero">
+        <h1>A dentist visit you won’t dread.</h1>
+        <p>
+          Friendly care for the whole family, with clear prices and easy online
+          booking.
+        </p>
+        <a class="btn" href="#booking">Book an appointment</a>
+        <div class="trust">
+          <span>New patients welcome</span>
+          <span>Same-day emergency slots</span>
+          <span>Clear prices before treatment</span>
+        </div>
+      </div>
+
+      <section id="services">
+        <div class="w">
+          <h2>Our services</h2>
+          <p class="lead">Simple, upfront pricing for the most common visits.</p>
+          <div class="grid" id="svc"></div>
+        </div>
+      </section>
+
+      <section id="booking">
+        <div class="w">
+          <h2>Book your appointment</h2>
+          <p class="lead">
+            Choose a service, pick a time, and tell us who’s coming.
+          </p>
+          <div id="done"></div>
+
+          <form id="bf" novalidate>
+            <div class="book" id="book">
+              <div class="card">
+                <div class="step">
+                  <h3><span>1</span>Choose a service</h3>
+                  <div class="opts" id="opts"></div>
+                </div>
+
+                <div class="step">
+                  <h3><span>2</span>Pick a day and time</h3>
+                  <div class="days" id="days" aria-label="Day"></div>
+                  <div class="slots" id="slots" aria-label="Time"></div>
+                  <p class="note">Crossed-out times are already booked.</p>
+                </div>
+
+                <div class="step">
+                  <h3><span>3</span>Your details</h3>
+                  <label for="nm">Full name</label>
+                  <input id="nm" required maxlength="60" autocomplete="name" />
+
+                  <label for="em">Email</label>
+                  <input
+                    id="em"
+                    type="email"
+                    required
+                    autocomplete="email"
+                  />
+
+                  <label for="ph">Phone (optional)</label>
+                  <input id="ph" type="tel" autocomplete="tel" />
+
+                  <label class="ck">
+                    <input type="checkbox" id="first" />This is my first visit
+                  </label>
+                  <ul class="checklist" id="list" hidden>
+                    <li>Arrive 10 minutes early to fill in a short form.</li>
+                    <li>Bring a photo ID and your insurance card, if any.</li>
+                    <li>Tell us about any medicines you take.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <aside class="card sum" aria-live="polite">
+                <h3>Your booking</h3>
+                <div id="rows"></div>
+                <div class="row">
+                  <span>Estimated cost</span>
+                  <b class="price" id="est"></b>
+                </div>
+                <p class="note">Illustrative demo pricing.</p>
+                <div class="err" id="err" role="alert"></div>
+                <button class="btn" style="width: 100%; margin-top: 10px">
+                  Confirm booking
+                </button>
+              </aside>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <section id="team">
+        <div class="w">
+          <h2>Meet the team</h2>
+          <p class="lead">Calm, careful and always happy to explain.</p>
+          <div class="grid">
+            <div class="card">
+              <div class="av" aria-hidden="true">AB</div>
+              <h3>Dr. Amara Bell</h3>
+              <p class="note">
+                Principal dentist. General and cosmetic care for 12 years.
+              </p>
+            </div>
+            <div class="card">
+              <div class="av" aria-hidden="true">LK</div>
+              <h3>Dr. Leo Kim</h3>
+              <p class="note">
+                Children’s dentistry and anxious patients. Known for his
+                patience.
+              </p>
+            </div>
+            <div class="card">
+              <div class="av" aria-hidden="true">SR</div>
+              <h3>Sofia Reyes</h3>
+              <p class="note">
+                Dental hygienist. Gentle cleanings and honest home-care advice.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq">
+        <div class="w">
+          <h2>Common questions</h2>
+          <details>
+            <summary>Do you see children?</summary>
+            <p>
+              Yes. We welcome children from their first tooth, and we keep
+              visits short and friendly.
+            </p>
+          </details>
+          <details>
+            <summary>What if I have a dental emergency?</summary>
+            <p>
+              Book an emergency visit online, or call us. We keep slots free
+              each day for pain, chips and lost fillings.
+            </p>
+          </details>
+          <details>
+            <summary>Can I cancel or change my appointment?</summary>
+            <p>
+              Yes. Just let us know at least 24 hours ahead and we’ll move it
+              at no charge.
+            </p>
+          </details>
+        </div>
+      </section>
+    </main>
+
+    <div class="pitch">
+      <div class="w">
+        <div>
+          <strong>Want an online booking site for your clinic?</strong>
+          <p>
+            Demo site designed and built by <span id="devname"></span>. Easy
+            to use, accessible and built to fill your calendar.
+          </p>
+        </div>
+        <a class="btn" id="devmail" href="#">Get a free quote</a>
+      </div>
+    </div>
+
+    <footer class="fo">
+      <div class="w">
+        © Brightwater Dental. This is a demo business made for portfolio
+        purposes. Prices and people shown are fictional.
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
